@@ -1,0 +1,46 @@
+{{!-- View is what's presented to the users and how users interact with the app. 
+The view is made with HTML, CSS, JavaScript and often templates. This part 
+of your Chrome App has access to the DOM. --}}
+
+<h1>Burgers!</h1>
+
+<h2>Burgers that are not yet eaten!</h2>
+
+<ul id="not-devoured-burgers">
+  {{!-- loop over each burger table row and check to see if it is devoured--}}
+  {{!-- burgers comes from the controller viewdata call --}}
+  {{#each burgers}}
+    {{#unless devoured}}
+      {{!-- loads the partial burgers burger-block --}}
+      {{!-- passing in the newDevoured from burger-block handlebar --}}
+      {{> burgers/burger-block newDevoured=false}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<h2>Burgers that are devoured!</h2>
+
+<ul>
+  {{#each burgers}}
+    {{#if devoured}}
+      {{> burgers/burger-block newDevoured=true}}
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h2>Add a Burger</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="burger">Burger Name:</label>
+    <input type="text" id="burger" name="burger_name">
+  </div>
+
+  {{!-- <div class="form-group">
+    <label for="dev">Devoured?</label><br>
+    <input type="radio" name="devoured" value="1" checked> Devoured!<br>
+    <input type="radio" name="devoured" value="0"> Hungry?
+  </div> --}}
+
+  <button type="submit">Add Burger</button>
+</form>
