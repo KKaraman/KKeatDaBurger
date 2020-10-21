@@ -2,7 +2,7 @@
 console.log("works");
 $(function () {
   $(".change-devoured").on("click", function (event) {
-    alert("clicked");
+    // alert("clicked");
     const id = $(this).data("id");
     let newDevoured = $(this).data("newdevoured");
     console.log("newdevoured status is changed to" + newDevoured);

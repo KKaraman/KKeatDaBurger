@@ -2,9 +2,11 @@
 The view is made with HTML, CSS, JavaScript and often templates. This part 
 of your Chrome App has access to the DOM. --}}
 
-<h1>Burgers!</h1>
+<h1 class="text-center">Burgers!</h1>
 
-<h2>Burgers that are not yet eaten!</h2>
+<img src="/assets/images/burger_spreadsheet.jpg" alt="Make it your way" style="height:450px; width:300px; display:block; margin-left:auto; margin-right:auto; width:40%;">
+
+<h2 class="text-center">Burgers that are not yet eaten!</h2>
 
 <ul id="not-devoured-burgers">
   {{!-- loop over each burger table row and check to see if it is devoured--}}
@@ -18,7 +20,7 @@ of your Chrome App has access to the DOM. --}}
   {{/each}}
 </ul>
 
-<h2>Burgers that are devoured!</h2>
+<h2 class="text-center">Burgers that are devoured!</h2>
 
 <ul>
   {{#each burgers}}
@@ -28,7 +30,7 @@ of your Chrome App has access to the DOM. --}}
   {{/each}}
 </ul>
 
-<h2>Add a Burger</h2>
+<h2 class="text-center">Add a Burger</h2>
 <form class="create-form">
 
   <div class="form-group">
