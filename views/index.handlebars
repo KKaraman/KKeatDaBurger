@@ -1,48 +1,61 @@
 {{!-- View is what's presented to the users and how users interact with the app. 
 The view is made with HTML, CSS, JavaScript and often templates. This part 
 of your Chrome App has access to the DOM. --}}
-
-<h1 class="text-center">Burgers!</h1>
-
-<img src="/assets/images/burger_spreadsheet.jpg" alt="Make it your way" style="height:450px; width:300px; display:block; margin-left:auto; margin-right:auto; width:40%;">
-
-<h2 class="text-center">Burgers that are not yet eaten!</h2>
-
-<ul id="not-devoured-burgers">
-  {{!-- loop over each burger table row and check to see if it is devoured--}}
-  {{!-- burgers comes from the controller viewdata call --}}
-  {{#each burgers}}
-    {{#unless devoured}}
-      {{!-- loads the partial burgers burger-block --}}
-      {{!-- passing in the newDevoured from burger-block handlebar --}}
-      {{> burgers/burger-block newDevoured=1}}
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2 class="text-center">Burgers that are devoured!</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-      {{> burgers/burger-block newDevoured=0}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2 class="text-center">Add a Burger</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="burger">Burger Name:</label>
-    <input type="text" id="burger" name="burger_name">
+<div class="jumbotron jumbotron-fluid" style="background-color:gold;">
+  <div class="container text-center" style="padding-top: 2px;">
+    <h1 class="display-4"><strong>Who is ready for some burgers?</strong></h1>
+    {{!-- <img src="/assets/images/burger_spreadsheet.jpg" alt="Make it your way"
+      style="height:350px; width:250px; display:block; margin-left:auto; margin-right:auto; width:40%;"> --}}
   </div>
 
-  {{!-- <div class="form-group">
-    <label for="dev">Devoured?</label><br>
-    <input type="radio" name="devoured" value="1" checked> Devoured!<br>
-    <input type="radio" name="devoured" value="0"> Hungry?
-  </div> --}}
 
-  <button type="submit">Add Burger</button>
-</form>
+  <div class="card-group">
+    <div class="card" style="background-color: lightyellow; border-width:3px; border-color:black;">
+      <img src="/assets/images/cheeseburger.jpg" alt="Delicious burger"
+        style="height:auto; width:100%; padding-top:125px;">
+      <div class=" card-body" id="not-devoured-burgers">
+        <br>
+        <br>
+        <h5 class="card-title text-center">Burgers to eat</h5>
+        {{!-- <ul id="not-devoured-burgers"> --}}
+        {{!-- loop over each burger table row and check to see if it is devoured--}}
+        {{!-- burgers comes from the controller viewdata call --}}
+        {{#each burgers}}
+        {{#unless devoured}}
+        {{!-- loads the partial burgers burger-block --}}
+        {{!-- passing in the newDevoured from burger-block handlebar --}}
+        {{> burgers/burger-block newDevoured=1}}
+        {{/unless}}
+        {{/each}}
+        {{!-- </ul> --}}
+      </div>
+    </div>
+    <div class="card" style="background-color:lightyellow; border-width:3px; border-color:black;">
+      <img src="/assets/images/burger_spreadsheet.jpg" alt="Make it your way"
+        style="height:auto; width:100%; padding-top:50px;">
+      <div class="card-body">
+        <h5 class="card-title text-center">Add a Burger</h5>
+        <form class="create-form">
+
+          <div class="form-group">
+            <label for="burger">Burger Name:</label>
+            <input type="text" id="burger" name="burger_name">
+          </div>
+
+          <button type="submit">Add Burger</button>
+        </form>
+      </div>
+    </div>
+    <div class="card" style="background-color:lightyellow; border-width:3px; border-color:black;">
+      <img src="/assets/images/bread_crumbs.jpg" alt="All gone" style="height:auto; width:100%;">
+      <div class="card-body">
+        <h5 class="card-title">Burgers devoured!</h5>
+        {{#each burgers}}
+        {{#if devoured}}
+        {{> burgers/burger-block newDevoured=0}}
+        {{/if}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>

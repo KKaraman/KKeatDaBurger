@@ -1,8 +1,8 @@
-<li class="a-burger">
-	<span class="burger_name">{{burger_name}}</span>
+<div class="a-burger">
+	<h8 class="burger_name text-center">{{burger_name}}</h8>
 
 	{{!-- setting up a new property for the index.html handlebar --}}
-	<button class="change-devoured" data-id="{{id}}" data-newDevoured="{{newDevoured}}">
+	<button class="change-devoured" style="margin-left:auto; margin-right:auto;" data-id="{{id}}" data-newDevoured="{{newDevoured}}">
 		{{#if newDevoured}}Devour it!{{else}}Order it!{{/if}}
 	</button>
-</li>
+</div>
