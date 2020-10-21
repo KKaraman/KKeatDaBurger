@@ -13,7 +13,7 @@ of your Chrome App has access to the DOM. --}}
     {{#unless devoured}}
       {{!-- loads the partial burgers burger-block --}}
       {{!-- passing in the newDevoured from burger-block handlebar --}}
-      {{> burgers/burger-block newDevoured=false}}
+      {{> burgers/burger-block newDevoured=1}}
     {{/unless}}
   {{/each}}
 </ul>
@@ -23,7 +23,7 @@ of your Chrome App has access to the DOM. --}}
 <ul>
   {{#each burgers}}
     {{#if devoured}}
-      {{> burgers/burger-block newDevoured=true}}
+      {{> burgers/burger-block newDevoured=0}}
     {{/if}}
   {{/each}}
 </ul>

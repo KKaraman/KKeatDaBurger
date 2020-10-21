@@ -34,6 +34,7 @@ router.post("/api/burgers", (req, res) => {
 
 //calling our model burger.updateOne
 router.put("/api/burgers/:id", (req, res) => {
+  console.log("put id fx");
   const condition = `id = ${req.params.id}`;
 
   console.log("condition", condition);
